@@ -5,12 +5,16 @@ class SunlightService
   end
 
   def legislators(params)
-    JSON.parse(connection.get("/legislators", params).body, symbolize_names: true)[:results]
+    parse(connection.get("/legislators", params))[:results]
   end
 
   private
 
     def connection
       @_connection
+    end
+
+    def parse(response)
+      JSON.parse(response.body, symbolize_names: true)
     end
 end
