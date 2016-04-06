@@ -6,7 +6,6 @@ describe SunlightService do
       service = SunlightService.new
       legislators = service.legislators(gender: "F")
       legislator = legislators.first
-      require "pry"; binding.pry
       expect(legislator[:first_name]).to eq("Joni")
       expect(legislator[:gender]).to eq("F")
       expect(legislators.count).to eq(20)
